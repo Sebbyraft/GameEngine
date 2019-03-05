@@ -8,6 +8,7 @@ import models.RawModel;
 import models.TexturedModel;
 
 import org.lwjgl.opengl.Display;
+import org.lwjgl.util.vector.Vector2f;
 import org.lwjgl.util.vector.Vector3f;
 
 import renderEngine.DisplayManager;
@@ -22,6 +23,8 @@ import entities.Camera;
 import entities.Entity;
 import entities.Light;
 import entities.Player;
+import guis.GuiRenderer;
+import guis.GuiTexture;
 
 public class MainGameLoop {
 
@@ -93,7 +96,14 @@ public class MainGameLoop {
 		Camera camera = new Camera(player);	
 		//********************************************************************************
 		
+		
+		//****************************** GUI STUFF ***************************************
+		List<GuiTexture> guis = new ArrayList<GuiTexture>();
+		guis.add(new GuiTexture(loader.loadTexture("health"), new Vector2f(-0.8f, 0.9f),new Vector2f(0.2f, 0.3f)));
+		//guis.add(new GuiTexture(loader.loadTexture("thinmatrix"), new Vector2f(0.30f, 0.74f),new Vector2f(0.4f, 0.4f)));
+		//********************************************************************************
 		MasterRenderer renderer = new MasterRenderer();
+		GuiRenderer guiRenderer = new GuiRenderer(loader);
 		
 		while(!Display.isCloseRequested()){
 			camera.move();
@@ -106,9 +116,11 @@ public class MainGameLoop {
 				renderer.processEntity(entity);
 			}
 			renderer.render(light, camera);
+			guiRenderer.render(guis);
 			DisplayManager.updateDisplay();
 		}
 
+		guiRenderer.cleanUp();
 		renderer.cleanUp();
 		loader.cleanUp();
 		DisplayManager.closeDisplay();
