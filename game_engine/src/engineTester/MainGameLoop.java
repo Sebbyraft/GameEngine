@@ -67,14 +67,14 @@ public class MainGameLoop {
 				float x = random.nextFloat()*800; //- 400;
 				float z = random.nextFloat()*-800; //* -600;
 				float y = terrain.getHeightOfTerrain(x, z);
-				entities.add(new Entity(fern, random.nextInt(4),new Vector3f(x,y,z),0,random.nextFloat()*360,0,0.9f));
+				entities.add(new Entity(fern, random.nextInt(4),new Vector3f(x,y,z),0,random.nextFloat()*360,0,1.3f));
 			}
 			
 			if(i % 5 == 0) {
 				float x = random.nextFloat()*800;
 				float z = random.nextFloat() * -800;
 				float y = terrain.getHeightOfTerrain(x, z);
-				entities.add(new Entity(tree, new Vector3f(x,y,z),0,0,0,1));
+				entities.add(new Entity(tree, new Vector3f(x,y,z),0,0,0,1.7f));
 			}
 			
 		}
@@ -82,9 +82,9 @@ public class MainGameLoop {
 		
 		//**************************** LIGHT STUFF ***************************************
 		List<Light> lights = new ArrayList<Light>();
-		lights.add(new Light(new Vector3f(0000,10000,-10000),new Vector3f(1,1,1)));
-		lights.add(new Light(new Vector3f(-200,10,-200),new Vector3f(10,0,0)));
-		lights.add(new Light(new Vector3f(200,10,200),new Vector3f(0,0,10)));
+		lights.add(new Light(new Vector3f(0000,10000,-10000),new Vector3f(1.5f,1.5f,1.5f)));
+		lights.add(new Light(new Vector3f(-200,10,-200),new Vector3f(0,0,0)));
+		lights.add(new Light(new Vector3f(200,10,200),new Vector3f(0,0,0)));
 		//********************************************************************************
 		
 		//*************************** PLAYER STUFF ***************************************
