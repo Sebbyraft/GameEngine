@@ -43,10 +43,13 @@ public class MainGameLoop {
 		//********************************************************************************
 		
 		//*************************** ENTITY STUFF ***************************************
-		RawModel fernModel = OBJLoader.loadObjModel("fern", loader);
+		ModelTexture fernTextureAtlas = new ModelTexture(loader.loadTexture("fern"));
+		RawModel fernRawModel = OBJLoader.loadObjModel("fern", loader);
+		fernTextureAtlas.setNumberOfRows(2);
+		
 		RawModel treeModel = OBJLoader.loadObjModel("lowPolyTree", loader);
 		
-		TexturedModel fern = new TexturedModel(fernModel,new ModelTexture(loader.loadTexture("fern")));
+		TexturedModel fern = new TexturedModel(fernRawModel,fernTextureAtlas);
 		fern.getTexture().setHasTransparency(true);
 		fern.getTexture().setUseFakeLighting(true);
 		
@@ -56,12 +59,12 @@ public class MainGameLoop {
 		
 		List<Entity> entities = new ArrayList<Entity>();
 		Random random = new Random();
-		for(int i=0;i<500;i++){
-			if(i % 20 == 0) {
+		for(int i=0;i<600;i++){
+			if(i % 2 == 0) {
 				float x = random.nextFloat()*800; //- 400;
 				float z = random.nextFloat()*-800; //* -600;
 				float y = terrain.getHeightOfTerrain(x, z);
-				entities.add(new Entity(fern, new Vector3f(x,y,z),0,random.nextFloat()*360,0,0.9f));
+				entities.add(new Entity(fern, random.nextInt(4),new Vector3f(x,y,z),0,random.nextFloat()*360,0,0.9f));
 			}
 			
 			if(i % 5 == 0) {
