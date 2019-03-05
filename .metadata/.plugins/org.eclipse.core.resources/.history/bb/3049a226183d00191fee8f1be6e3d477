@@ -1,0 +1,25 @@
+package renderEngine;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import shaders.StaticShader;
+import entities.Entity;
+import models.TexturedModel;
+
+public class MasterRenderer {
+	private StaticShader shader = new StaticShader();
+	private Renderer renderer = new Renderer(shader);
+	
+	private Map<TexturedModel,List<Entity>> entities = new HashMap<TexturedModel,List<Entity>>();
+	
+	
+	public void render(Light light, Camera camera) {
+		
+	}
+	
+	public void cleanUp() {
+		shader.cleanUp();
+	}
+}

@@ -1,0 +1,13 @@
+package renderEngine;
+
+import java.util.HashMap;
+
+import shaders.StaticShader;
+import entities.Entity;
+
+public class MasterRenderer {
+	private StaticShader shader = new StaticShader();
+	private Renderer renderer = new Renderer(shader);
+	
+	private Map<TextureModel,List<Entity>> entities = new HashMap<TextureModel,List<Entity>>();
+}

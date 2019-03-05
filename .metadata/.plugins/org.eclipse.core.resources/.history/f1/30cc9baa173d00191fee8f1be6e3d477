@@ -1,0 +1,8 @@
+package renderEngine;
+
+import shaders.StaticShader;
+
+public class MasterRenderer {
+	private StaticShader shader = new StaticShader();
+
+}
