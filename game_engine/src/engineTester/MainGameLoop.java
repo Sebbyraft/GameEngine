@@ -81,13 +81,15 @@ public class MainGameLoop {
 		//********************************************************************************
 		
 		//**************************** LIGHT STUFF ***************************************
-		Light light = new Light(new Vector3f(0000,10000,-10000),new Vector3f(1,1,1));
+		List<Light> lights = new ArrayList<Light>();
+		lights.add(new Light(new Vector3f(0000,10000,-10000),new Vector3f(1,1,1)));
+		lights.add(new Light(new Vector3f(-200,10,-200),new Vector3f(10,0,0)));
+		lights.add(new Light(new Vector3f(200,10,200),new Vector3f(0,0,10)));
 		//********************************************************************************
 		
 		//*************************** PLAYER STUFF ***************************************
 		RawModel bunnyModel = OBJLoader.loadObjModel("person", loader);
 		TexturedModel stanfordBunny = new TexturedModel(bunnyModel, new ModelTexture(loader.loadTexture("playerTexture")));
-		//********************************************************************************
 		Player player = new Player(stanfordBunny, new Vector3f(50,0,-100),0, 180, 0, 1);
 		//********************************************************************************
 		
@@ -100,8 +102,9 @@ public class MainGameLoop {
 		//****************************** GUI STUFF ***************************************
 		List<GuiTexture> guis = new ArrayList<GuiTexture>();
 		guis.add(new GuiTexture(loader.loadTexture("health"), new Vector2f(-0.8f, 0.9f),new Vector2f(0.2f, 0.3f)));
-		//guis.add(new GuiTexture(loader.loadTexture("thinmatrix"), new Vector2f(0.30f, 0.74f),new Vector2f(0.4f, 0.4f)));
 		//********************************************************************************
+		
+		//****************************** RENDERERS ***************************************
 		MasterRenderer renderer = new MasterRenderer();
 		GuiRenderer guiRenderer = new GuiRenderer(loader);
 		
@@ -115,7 +118,7 @@ public class MainGameLoop {
 			for(Entity entity:entities){
 				renderer.processEntity(entity);
 			}
-			renderer.render(light, camera);
+			renderer.render(lights, camera);
 			guiRenderer.render(guis);
 			DisplayManager.updateDisplay();
 		}
