@@ -51,31 +51,25 @@ public class MainGameLoop {
 		fernTextureAtlas.setNumberOfRows(2);
 		
 		RawModel treeModel = OBJLoader.loadObjModel("lowPolyTree", loader);
-		RawModel boxModel = OBJLoader.loadObjModel("box", loader);
-		RawModel pineModel = OBJLoader.loadObjModel("pine", loader);
 		
-		ModelTexture grassTextureAtlas = new ModelTexture(loader.loadTexture("diffuse"));
-		RawModel grassModel = OBJLoader.loadObjModel("grassModel", loader);
-		grassTextureAtlas.setNumberOfRows(3);
+		RawModel boxModel = OBJLoader.loadObjModel("box", loader);
 		
 		TexturedModel fern = new TexturedModel(fernRawModel,fernTextureAtlas);
 		fern.getTexture().setHasTransparency(true);
 		fern.getTexture().setUseFakeLighting(true);
 		
-		TexturedModel grass = new TexturedModel(grassModel, grassTextureAtlas);
-		grass.getTexture().setHasTransparency(true);
-		grass.getTexture().setUseFakeLighting(true);
-		
 		TexturedModel tree = new TexturedModel(treeModel,new ModelTexture(loader.loadTexture("lowPolyTree")));
+		tree.getTexture().setHasTransparency(false);
+		tree.getTexture().setUseFakeLighting(false);
+		
 		TexturedModel box = new TexturedModel(boxModel, new ModelTexture(loader.loadTexture("box")));
-		TexturedModel pine = new TexturedModel(pineModel, new ModelTexture(loader.loadTexture("pine")));
 		
 		List<Entity> entities = new ArrayList<Entity>();
 		Random random = new Random();
 		for(int i=0;i<600;i++){
 			if(i % 2 == 0) {
-				float x = random.nextFloat()*800; 
-				float z = random.nextFloat()*-800; 
+				float x = random.nextFloat()*800; //- 400;
+				float z = random.nextFloat()*-800; //* -600;
 				float y = terrain.getHeightOfTerrain(x, z);
 				entities.add(new Entity(fern, random.nextInt(4),new Vector3f(x,y,z),0,random.nextFloat()*360,0,1.3f));
 			}
@@ -86,27 +80,6 @@ public class MainGameLoop {
 				float y = terrain.getHeightOfTerrain(x, z);
 				entities.add(new Entity(tree, new Vector3f(x,y,z),0,0,0,1.7f));
 			}
-			
-			if(i % 20 == 0) {
-				float x = random.nextFloat()*800;
-				float z = random.nextFloat() * -800;
-				float y = terrain.getHeightOfTerrain(x, z);
-				entities.add(new Entity(box, new Vector3f(x,y,z),0,0,0,4f));
-			}
-			
-			if(i % 10 == 0) {
-				float x = random.nextFloat()*800;
-				float z = random.nextFloat() * -800;
-				float y = terrain.getHeightOfTerrain(x, z);
-				entities.add(new Entity(pine, new Vector3f(x,y,z),0,0,0,4f));
-			}
-			
-//			if(i % 3 == 0) {
-//				float x = random.nextFloat()*800;
-//				float z = random.nextFloat() * -800;
-//				float y = terrain.getHeightOfTerrain(x, z);
-//				entities.add(new Entity(grass, new Vector3f(x,y,z),0,0,0,4f));
-//			}
 			
 		}
 		//********************************************************************************

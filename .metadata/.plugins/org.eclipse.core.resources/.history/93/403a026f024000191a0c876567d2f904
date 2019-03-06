@@ -55,13 +55,12 @@ public class MainGameLoop {
 		RawModel pineModel = OBJLoader.loadObjModel("pine", loader);
 		
 		ModelTexture grassTextureAtlas = new ModelTexture(loader.loadTexture("diffuse"));
-		RawModel grassModel = OBJLoader.loadObjModel("grassModel", loader);
-		grassTextureAtlas.setNumberOfRows(3);
+		RawModel grassModel = OBJLoader.loadObjModel("grass", loader);
+		grassTextureAtlas.setNumberOfRows(2);
 		
 		TexturedModel fern = new TexturedModel(fernRawModel,fernTextureAtlas);
 		fern.getTexture().setHasTransparency(true);
 		fern.getTexture().setUseFakeLighting(true);
-		
 		TexturedModel grass = new TexturedModel(grassModel, grassTextureAtlas);
 		grass.getTexture().setHasTransparency(true);
 		grass.getTexture().setUseFakeLighting(true);
@@ -101,12 +100,12 @@ public class MainGameLoop {
 				entities.add(new Entity(pine, new Vector3f(x,y,z),0,0,0,4f));
 			}
 			
-//			if(i % 3 == 0) {
-//				float x = random.nextFloat()*800;
-//				float z = random.nextFloat() * -800;
-//				float y = terrain.getHeightOfTerrain(x, z);
-//				entities.add(new Entity(grass, new Vector3f(x,y,z),0,0,0,4f));
-//			}
+			if(i % 3 == 0) {
+				float x = random.nextFloat()*800;
+				float z = random.nextFloat() * -800;
+				float y = terrain.getHeightOfTerrain(x, z);
+				entities.add(new Entity(grass, new Vector3f(x,y,z),0,0,0,4f));
+			}
 			
 		}
 		//********************************************************************************
