@@ -9,7 +9,6 @@
     <fullyQualifiedTypeName name="org.lwjgl.util.vector.Matrix"/>
     <fullyQualifiedTypeName name="org.lwjgl.BufferUtils"/>
     <fullyQualifiedTypeName name="java.nio.FloatBuffer"/>
-    <fullyQualifiedTypeName name="org.lwjgl.opengl.Display"/>
     <fullyQualifiedTypeName name="org.lwjgl.input.Keyboard"/>
     <fullyQualifiedTypeName name="toolbox.Maths"/>
     <fullyQualifiedTypeName name="java.io.FileReader"/>
@@ -38,10 +37,6 @@
     <fullyQualifiedTypeName name="entities.Entity"/>
     <fullyQualifiedTypeName name="renderEngine.DisplayManager"/>
     <fullyQualifiedTypeName name="entities.Player"/>
-    <fullyQualifiedTypeName name="models.RawModel"/>
-    <fullyQualifiedTypeName name="renderEngine.OBJLoader"/>
-    <fullyQualifiedTypeName name="models.TexturedModel"/>
-    <fullyQualifiedTypeName name="textures.ModelTexture"/>
     <fullyQualifiedTypeName name="org.lwjgl.util.vector.Vector3f"/>
     <fullyQualifiedTypeName name="org.lwjgl.input.Mouse"/>
     <fullyQualifiedTypeName name="java.lang.Math"/>
@@ -50,4 +45,12 @@
     <fullyQualifiedTypeName name="java.io.File"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
+    <fullyQualifiedTypeName name="java.awt.Window"/>
+    <fullyQualifiedTypeName name="java.awt.Toolkit"/>
+    <fullyQualifiedTypeName name="org.lwjgl.opengl.DisplayMode"/>
+    <fullyQualifiedTypeName name="org.lwjgl.opengl.Display"/>
+    <fullyQualifiedTypeName name="models.RawModel"/>
+    <fullyQualifiedTypeName name="renderEngine.OBJLoader"/>
+    <fullyQualifiedTypeName name="textures.ModelTexture"/>
+    <fullyQualifiedTypeName name="models.TexturedModel"/>
 </qualifiedTypeNameHistroy>
