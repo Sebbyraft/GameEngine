@@ -20,7 +20,7 @@ uniform float numberOfRows;
 uniform vec2 offset;
 
 const float density = 0.0005;
-const float gradient = 20;
+const float gradient = 10;
 
 void main(void){
 

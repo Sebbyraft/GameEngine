@@ -75,7 +75,7 @@ public class MasterRenderer {
 		terrainRenderer.render(terrains);
 		terrainShader.stop();
 		
-		skyBoxRenderer.render(camera);
+		skyBoxRenderer.render(camera, RED, GREEN, BLUE);
 		
 		terrains.clear();
 		entities.clear();

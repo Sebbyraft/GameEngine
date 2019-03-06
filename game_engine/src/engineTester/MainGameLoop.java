@@ -50,8 +50,8 @@ public class MainGameLoop {
 		RawModel fernRawModel = OBJLoader.loadObjModel("fern", loader);
 		fernTextureAtlas.setNumberOfRows(2);
 		
-		RawModel treeModel = OBJLoader.loadObjModel("lowPolyTree", loader);
-		RawModel boxModel = OBJLoader.loadObjModel("box", loader);
+//		RawModel treeModel = OBJLoader.loadObjModel("lowPolyTree", loader);
+//		RawModel boxModel = OBJLoader.loadObjModel("box", loader);
 		RawModel pineModel = OBJLoader.loadObjModel("pine", loader);
 		RawModel lampModel = OBJLoader.loadObjModel("lamp", loader);
 		
@@ -67,8 +67,8 @@ public class MainGameLoop {
 		grass.getTexture().setHasTransparency(true);
 		grass.getTexture().setUseFakeLighting(true);
 		
-		TexturedModel tree = new TexturedModel(treeModel,new ModelTexture(loader.loadTexture("lowPolyTree")));
-		TexturedModel box = new TexturedModel(boxModel, new ModelTexture(loader.loadTexture("box")));
+//		TexturedModel tree = new TexturedModel(treeModel,new ModelTexture(loader.loadTexture("lowPolyTree")));
+//		TexturedModel box = new TexturedModel(boxModel, new ModelTexture(loader.loadTexture("box")));
 		TexturedModel pine = new TexturedModel(pineModel, new ModelTexture(loader.loadTexture("pine")));
 		TexturedModel lamp = new TexturedModel(lampModel, new ModelTexture(loader.loadTexture("lamp")));
 		lamp.getTexture().setHasTransparency(true);
