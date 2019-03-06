@@ -1,0 +1,19 @@
+package toolbox;
+
+import org.lwjgl.util.vector.Matrix4f;
+import org.lwjgl.util.vector.Vector3f;
+
+import entities.Camera;
+
+public class MousePicker {
+	
+	private Vector3f currentRay;
+	private Matrix4f projectionMatrix;
+	private Matrix4f viewMatrix;
+	private Camera camera;
+	
+	public MousePicker() {
+		
+	}
+
+}

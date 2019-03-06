@@ -19,6 +19,7 @@ import terrains.Terrain;
 import textures.ModelTexture;
 import textures.TerrainTexture;
 import textures.TerrainTexturePack;
+import toolbox.MousePicker;
 import toolbox.MousePicker2;
 import entities.Camera;
 import entities.Entity;
@@ -167,8 +168,7 @@ public class MainGameLoop {
 			Vector3f terrainPoint = picker.getCurrentTerrainPoint();
 			
 			if(terrainPoint!=null) {
-				lampEntity.setPosition(terrainPoint);
-				light.setPosition(new Vector3f(terrainPoint.x, terrainPoint.y + 15, terrainPoint.z));
+				
 			}
 			
 			renderer.processEntity(player);

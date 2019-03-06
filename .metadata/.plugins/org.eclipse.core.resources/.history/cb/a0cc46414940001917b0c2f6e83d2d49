@@ -50,6 +50,10 @@ public class MasterRenderer {
 		skyBoxRenderer = new SkyBoxRenderer(loader, projectionMatrix);
 	}
 	
+	public Matrix4f getProjectionMatrix() {
+		return projectionMatrix;
+	}
+	
 	public void render(List<Light> lights,Camera camera){
 		prepare();
 		shader.start();
@@ -123,8 +127,5 @@ public class MasterRenderer {
 		projectionMatrix.m33 = 0;
 	}
 	
-	public Matrix4f getProjectionMatrix() {
-		return projectionMatrix;
-	}
 
 }
