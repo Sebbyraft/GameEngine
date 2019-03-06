@@ -1,5 +1,7 @@
 package renderEngine;
 
+import java.awt.Toolkit;
+
 import org.lwjgl.LWJGLException;
 import org.lwjgl.Sys;
 import org.lwjgl.opengl.ContextAttribs;
@@ -10,9 +12,8 @@ import org.lwjgl.opengl.PixelFormat;
 
 public class DisplayManager {
 	
-	private static final float MULT = 1f;
-	private static final int WIDTH = (int) (1280*MULT);
-	private static final int HEIGHT = (int) (720*MULT);
+	private static final int WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width;
+	private static final int HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height;
 	private static final int FPS_CAP = 120;
 	
 	private static long lastFrameTime;
