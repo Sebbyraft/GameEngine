@@ -1,0 +1,54 @@
+package skybox;
+
+public class SkyBoxRenderer {
+private static final float SIZE = 500f;
+	
+	private static final float[] VERTICES = {        
+	    -SIZE,  SIZE, -SIZE,
+	    -SIZE, -SIZE, -SIZE,
+	    SIZE, -SIZE, -SIZE,
+	     SIZE, -SIZE, -SIZE,
+	     SIZE,  SIZE, -SIZE,
+	    -SIZE,  SIZE, -SIZE,
+
+	    -SIZE, -SIZE,  SIZE,
+	    -SIZE, -SIZE, -SIZE,
+	    -SIZE,  SIZE, -SIZE,
+	    -SIZE,  SIZE, -SIZE,
+	    -SIZE,  SIZE,  SIZE,
+	    -SIZE, -SIZE,  SIZE,
+
+	     SIZE, -SIZE, -SIZE,
+	     SIZE, -SIZE,  SIZE,
+	     SIZE,  SIZE,  SIZE,
+	     SIZE,  SIZE,  SIZE,
+	     SIZE,  SIZE, -SIZE,
+	     SIZE, -SIZE, -SIZE,
+
+	    -SIZE, -SIZE,  SIZE,
+	    -SIZE,  SIZE,  SIZE,
+	     SIZE,  SIZE,  SIZE,
+	     SIZE,  SIZE,  SIZE,
+	     SIZE, -SIZE,  SIZE,
+	    -SIZE, -SIZE,  SIZE,
+
+	    -SIZE,  SIZE, -SIZE,
+	     SIZE,  SIZE, -SIZE,
+	     SIZE,  SIZE,  SIZE,
+	     SIZE,  SIZE,  SIZE,
+	    -SIZE,  SIZE,  SIZE,
+	    -SIZE,  SIZE, -SIZE,
+
+	    -SIZE, -SIZE, -SIZE,
+	    -SIZE, -SIZE,  SIZE,
+	     SIZE, -SIZE, -SIZE,
+	     SIZE, -SIZE, -SIZE,
+	    -SIZE, -SIZE,  SIZE,
+	     SIZE, -SIZE,  SIZE
+	};
+	
+	private static String[] TEXTURE_FILES = {"right", "left", "top", "bottom", "back", "front"};
+	
+	
+
+}

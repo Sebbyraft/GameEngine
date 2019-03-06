@@ -1,0 +1,74 @@
+package skybox;
+
+import org.lwjgl.util.vector.Matrix4f;
+
+import models.RawModel;
+import renderEngine.Loader;
+
+public class SkyBoxRenderer {
+private static final float SIZE = 500f;
+	
+	private static final float[] VERTICES = {        
+	    -SIZE,  SIZE, -SIZE,
+	    -SIZE, -SIZE, -SIZE,
+	    SIZE, -SIZE, -SIZE,
+	     SIZE, -SIZE, -SIZE,
+	     SIZE,  SIZE, -SIZE,
+	    -SIZE,  SIZE, -SIZE,
+
+	    -SIZE, -SIZE,  SIZE,
+	    -SIZE, -SIZE, -SIZE,
+	    -SIZE,  SIZE, -SIZE,
+	    -SIZE,  SIZE, -SIZE,
+	    -SIZE,  SIZE,  SIZE,
+	    -SIZE, -SIZE,  SIZE,
+
+	     SIZE, -SIZE, -SIZE,
+	     SIZE, -SIZE,  SIZE,
+	     SIZE,  SIZE,  SIZE,
+	     SIZE,  SIZE,  SIZE,
+	     SIZE,  SIZE, -SIZE,
+	     SIZE, -SIZE, -SIZE,
+
+	    -SIZE, -SIZE,  SIZE,
+	    -SIZE,  SIZE,  SIZE,
+	     SIZE,  SIZE,  SIZE,
+	     SIZE,  SIZE,  SIZE,
+	     SIZE, -SIZE,  SIZE,
+	    -SIZE, -SIZE,  SIZE,
+
+	    -SIZE,  SIZE, -SIZE,
+	     SIZE,  SIZE, -SIZE,
+	     SIZE,  SIZE,  SIZE,
+	     SIZE,  SIZE,  SIZE,
+	    -SIZE,  SIZE,  SIZE,
+	    -SIZE,  SIZE, -SIZE,
+
+	    -SIZE, -SIZE, -SIZE,
+	    -SIZE, -SIZE,  SIZE,
+	     SIZE, -SIZE, -SIZE,
+	     SIZE, -SIZE, -SIZE,
+	    -SIZE, -SIZE,  SIZE,
+	     SIZE, -SIZE,  SIZE
+	};
+	
+	private static String[] TEXTURE_FILES = {"right", "left", "top", "bottom", "back", "front"};
+	
+	private RawModel cube;
+	private int textureID;
+	private SkyboxShader shader;
+	
+	public SkyBoxRenderer(Loader loader, Matrix4f projectionMatrix) {
+		cube = loader.loadToVAO(VERTICES, 3);
+		textureID = loader.loadCubeMap(TEXTURE_FILES);
+		shader = new SkyboxShader();
+		shader.start();
+		shader.loadProjectionMatrix(projectionMatrix);
+		shader.stop();
+	}
+	
+	public void render(Camera camera) {
+		
+	}
+
+}
