@@ -12,8 +12,10 @@ import org.lwjgl.opengl.PixelFormat;
 
 public class DisplayManager {
 	
-	private static final int WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width;
-	private static final int HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height;
+//	private static final int WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width;
+//	private static final int HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height;
+	private static final int WIDTH = 1280;
+	private static final int HEIGHT = 720;
 	private static final int FPS_CAP = 120;
 	
 	private static long lastFrameTime;

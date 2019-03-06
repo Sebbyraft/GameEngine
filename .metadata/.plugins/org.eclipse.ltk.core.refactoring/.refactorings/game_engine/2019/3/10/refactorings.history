@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;game_engine/res/heightmap perlin.jpg&apos; to &apos;heightmap_perlin.jpg&apos;" description="Rename resource &apos;heightmap perlin.jpg&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="res/heightmap perlin.jpg" name="heightmap_perlin.jpg" stamp="1551908692826" updateReferences="true"/>
+</session>
