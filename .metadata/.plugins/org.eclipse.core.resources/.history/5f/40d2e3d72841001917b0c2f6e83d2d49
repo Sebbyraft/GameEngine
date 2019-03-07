@@ -123,7 +123,7 @@ public class MainGameLoop {
 		normalMapEntities.add(entity2);
 		normalMapEntities.add(entity3);
 		
-		Rabbit rabbitE = new Rabbit(rabbit, new Vector3f(130, terrain.getHeightOfTerrain(130, -130), -130), 0,0, 0, 1);
+		Rabbit rabbitE = new Rabbit(rabbit, new Vector3f(100, terrain.getHeightOfTerrain(130, -130), -100), 0,0, 0, 1);
 		entities.add(rabbitE);
 		
 		Random random = new Random(5666778);
@@ -189,7 +189,7 @@ public class MainGameLoop {
 			camera.move();
 			picker.update();
 
-			rabbitE.update(terrain);
+			rabbitE.move(terrain);
 			
 			GL11.glEnable(GL30.GL_CLIP_DISTANCE0);
 			

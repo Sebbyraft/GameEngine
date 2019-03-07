@@ -189,7 +189,7 @@ public class MainGameLoop {
 			camera.move();
 			picker.update();
 
-			rabbitE.update(terrain);
+			rabbitE.move(terrain);
 			
 			GL11.glEnable(GL30.GL_CLIP_DISTANCE0);
 			

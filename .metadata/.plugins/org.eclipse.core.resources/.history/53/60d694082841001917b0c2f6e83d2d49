@@ -16,7 +16,6 @@ import entities.Camera;
 import entities.Entity;
 import entities.Light;
 import entities.Player;
-import entities.Rabbit;
 import fontMeshCreator.FontType;
 import fontMeshCreator.GUIText;
 import fontRendering.TextMaster;
@@ -88,7 +87,7 @@ public class MainGameLoop {
 				new ModelTexture(loader.loadTexture("lamp")));
 		lamp.getTexture().setUseFakeLighting(true);
 		
-		TexturedModel rabbit = new TexturedModel(OBJLoader.loadObjModel("bunny", loader), new ModelTexture(loader.loadTexture("white")));
+		TexturedModel rabbit = new TexturedModel(OBJLoader.loadObjModel("rabbit", loader), new ModelTexture(loader.loadTexture("white")));
 
 		List<Entity> entities = new ArrayList<Entity>();
 		List<Entity> normalMapEntities = new ArrayList<Entity>();
@@ -122,9 +121,6 @@ public class MainGameLoop {
 		normalMapEntities.add(entity);
 		normalMapEntities.add(entity2);
 		normalMapEntities.add(entity3);
-		
-		Rabbit rabbitE = new Rabbit(rabbit, new Vector3f(130, terrain.getHeightOfTerrain(130, -130), -130), 0,0, 0, 1);
-		entities.add(rabbitE);
 		
 		Random random = new Random(5666778);
 		for (int i = 0; i < 60; i++) {
@@ -188,9 +184,9 @@ public class MainGameLoop {
 			player.move(terrain);
 			camera.move();
 			picker.update();
-
-			rabbitE.update(terrain);
-			
+			entity.increaseRotation(0, 1, 0);
+			entity2.increaseRotation(0, 1, 0);
+			entity3.increaseRotation(0, 1, 0);
 			GL11.glEnable(GL30.GL_CLIP_DISTANCE0);
 			
 			//render reflection teture
