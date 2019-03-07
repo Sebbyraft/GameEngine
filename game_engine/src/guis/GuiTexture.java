@@ -4,12 +4,11 @@ import org.lwjgl.util.vector.Vector2f;
 
 public class GuiTexture {
 	
-	private int  texture;
+	private int texture;
 	private Vector2f position;
 	private Vector2f scale;
 	
 	public GuiTexture(int texture, Vector2f position, Vector2f scale) {
-		super();
 		this.texture = texture;
 		this.position = position;
 		this.scale = scale;
@@ -27,4 +26,6 @@ public class GuiTexture {
 		return scale;
 	}
 	
+	
+
 }

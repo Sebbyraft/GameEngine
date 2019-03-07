@@ -16,10 +16,10 @@ public class Light {
 	public Light(Vector3f position, Vector3f colour, Vector3f attenuation) {
 		this.position = position;
 		this.colour = colour;
-		this.attenuation = attenuation; 
+		this.attenuation = attenuation;
 	}
 	
-	public Vector3f getAttenuation() {
+	public Vector3f getAttenuation(){
 		return attenuation;
 	}
 
@@ -39,4 +39,5 @@ public class Light {
 		this.colour = colour;
 	}
 	
+
 }

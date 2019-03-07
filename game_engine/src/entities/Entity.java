@@ -23,9 +23,9 @@ public class Entity {
 		this.scale = scale;
 	}
 	
-	public Entity(TexturedModel model, int textureIndex, Vector3f position, float rotX, float rotY, float rotZ,
+	public Entity(TexturedModel model, int index, Vector3f position, float rotX, float rotY, float rotZ,
 			float scale) {
-		this.textureIndex = textureIndex;
+		this.textureIndex = index;
 		this.model = model;
 		this.position = position;
 		this.rotX = rotX;
@@ -34,15 +34,13 @@ public class Entity {
 		this.scale = scale;
 	}
 	
-	// Multitexturing
-	
-	public float getTextureXOffset() {
-		int column = textureIndex % model.getTexture().getNumberOfRows();
+	public float getTextureXOffset(){
+		int column = textureIndex%model.getTexture().getNumberOfRows();
 		return (float)column/(float)model.getTexture().getNumberOfRows();
 	}
 	
-	public float getTextureYOffset() {
-		int row = textureIndex / model.getTexture().getNumberOfRows();
+	public float getTextureYOffset(){
+		int row = textureIndex/model.getTexture().getNumberOfRows();
 		return (float)row/(float)model.getTexture().getNumberOfRows();
 	}
 

@@ -62,24 +62,24 @@ public abstract class ShaderProgram {
 		GL20.glBindAttribLocation(programID, attribute, variableName);
 	}
 	
-	protected void loadInt(int location, int value){
-		GL20.glUniform1i(location, value);
-	}
-	
-	protected void load2DVector(int location, Vector2f vector){
-		GL20.glUniform2f(location, vector.x, vector.y);
-	}
-	
 	protected void loadFloat(int location, float value){
 		GL20.glUniform1f(location, value);
 	}
 	
-	protected void load3DVector(int location, Vector3f vector){
+	protected void loadInt(int location, int value){
+		GL20.glUniform1i(location, value);
+	}
+	
+	protected void loadVector(int location, Vector3f vector){
 		GL20.glUniform3f(location,vector.x,vector.y,vector.z);
 	}
 	
-	protected void load4DVector(int location, Vector4f vector){
+	protected void loadVector(int location, Vector4f vector){
 		GL20.glUniform4f(location,vector.x,vector.y,vector.z, vector.w);
+	}
+	
+	protected void load2DVector(int location, Vector2f vector){
+		GL20.glUniform2f(location,vector.x,vector.y);
 	}
 	
 	protected void loadBoolean(int location, boolean value){

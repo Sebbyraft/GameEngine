@@ -1,4 +1,4 @@
-#version 400 core
+#version 150
 
 in vec3 position;
 in vec2 textureCoordinates;
@@ -16,13 +16,14 @@ uniform mat4 viewMatrix;
 uniform vec3 lightPosition[4];
 
 uniform float useFakeLighting;
+
 uniform float numberOfRows;
 uniform vec2 offset;
+
+const float density = 0;
+const float gradient = 5.0;
+
 uniform vec4 plane;
-
-const float density = 0.0005;
-const float gradient = 10;
-
 
 void main(void){
 
@@ -40,7 +41,7 @@ void main(void){
 	}
 	
 	surfaceNormal = (transformationMatrix * vec4(actualNormal,0.0)).xyz;
-	for(int i = 0; i < 4; i++){
+	for(int i=0;i<4;i++){
 		toLightVector[i] = lightPosition[i] - worldPosition.xyz;
 	}
 	toCameraVector = (inverse(viewMatrix) * vec4(0.0,0.0,0.0,1.0)).xyz - worldPosition.xyz;
@@ -48,4 +49,5 @@ void main(void){
 	float distance = length(positionRelativeToCam.xyz);
 	visibility = exp(-pow((distance*density),gradient));
 	visibility = clamp(visibility,0.0,1.0);
+	
 }
