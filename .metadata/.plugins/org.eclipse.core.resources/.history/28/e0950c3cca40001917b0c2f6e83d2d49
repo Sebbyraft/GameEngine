@@ -6,6 +6,7 @@ import java.util.Map;
 import models.RawModel;
 import models.TexturedModel;
 
+import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL20;
