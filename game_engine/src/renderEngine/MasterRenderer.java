@@ -143,4 +143,11 @@ public class MasterRenderer {
 		render(lights, camera, clipPlane);
 	}
 
+	public float[] getPlanes() {
+		float[] planes = new float[2];
+		planes[0] = NEAR_PLANE;
+		planes[1] = FAR_PLANE;
+		
+		return planes;
+	}
 }

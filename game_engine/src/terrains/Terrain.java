@@ -18,7 +18,7 @@ import toolbox.Maths;
 public class Terrain {
 	
 	private static final float SIZE = 800;
-	private static final float MAX_HEIGHT = 50;
+	private static final float MAX_HEIGHT = 40;
 	private static final float MAX_PIXEL_COLOUR = 256*256*256;
 	
 	private float x;
@@ -61,7 +61,7 @@ public class Terrain {
 		float terrainX = worldX - this.x;
 		float terrainZ = worldZ - this.z;
 		
-		float gridSquareSize = SIZE /((float) heights.length -1);
+		float gridSquareSize = SIZE / ((float) heights.length - 1);
 		int gridX = (int) Math.floor(terrainX/gridSquareSize);
 		int gridZ = (int) Math.floor(terrainZ/gridSquareSize);
 		
@@ -86,6 +86,7 @@ public class Terrain {
 		
 		return answer;
 	}
+	
 	private RawModel generateTerrain(Loader loader, String heightMap){
 		
 		BufferedImage image = null;
@@ -157,9 +158,13 @@ public class Terrain {
 		
 		float height = image.getRGB(x, z);
 		height += MAX_PIXEL_COLOUR/2f;
-		height/= MAX_PIXEL_COLOUR/2f;
-		height*= MAX_HEIGHT;
+		height /= MAX_PIXEL_COLOUR/2f;
+		height *= MAX_HEIGHT;
 		return height;
+	}
+
+	public float getSize() {
+		return SIZE;
 	}
 
 }

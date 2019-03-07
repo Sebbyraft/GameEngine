@@ -125,7 +125,8 @@ public class MainGameLoop {
 		
 		//**************************** LIGHT STUFF ***************************************
 		List<Light> lights = new ArrayList<Light>();
-		lights.add(new Light(new Vector3f(0,500,-500),new Vector3f(0.4f,0.4f,0.4f)));
+		Light sun = new Light(new Vector3f(0,500,-500),new Vector3f(0.4f,0.4f,0.4f));
+		lights.add(sun);
 		//lights.add(new Light(new Vector3f(185,10,-293),new Vector3f(2,0,0), new Vector3f(1, 0.01f, 0.002f)));
 		lights.add(new Light(new Vector3f(370,17,-300),new Vector3f(0,2,2), new Vector3f(1, 0.01f, 0.002f)));
 		lights.add(new Light(new Vector3f(293,7,-305),new Vector3f(2,2,0), new Vector3f(1, 0.01f, 0.002f)));
@@ -169,7 +170,7 @@ public class MainGameLoop {
 		//****************************** WATER STUFF ************************************
 		WaterShader waterShader = new WaterShader();
 		WaterFrameBuffers buffer = new WaterFrameBuffers();
-		WaterRenderer waterRenderer = new WaterRenderer(loader, waterShader, renderer.getProjectionMatrix(), buffer);
+		WaterRenderer waterRenderer = new WaterRenderer(loader, waterShader, renderer.getProjectionMatrix(), buffer, renderer.getPlanes());
 		List<WaterTile> waters = new ArrayList<WaterTile>();
 		WaterTile water = new WaterTile(128, -100, -7, 120);
 		waters.add(water);
@@ -179,8 +180,18 @@ public class MainGameLoop {
 
 		//################################ MAIN LOOP #####################################
 		while(!Display.isCloseRequested()){
-			for(Terrain t: terrains) {
-				player.move(t);
+			for(Terrain t : terrains) {
+			 if(t.getX() <= player.getPosition().x) { 
+				 float x = random.nextInt((int) terrain.getSize() * 2) + terrain.getX();
+				 if(x > player.getPosition().x) {
+			    	if(t.getZ() <= player.getPosition().z) {
+			    		float z = random.nextInt((int) terrain.getSize() * 2) + terrain.getZ();
+			    		if(z > player.getPosition().z) {
+			    			player.move(terrain);
+			    		}
+			    	}
+			    }
+			  }
 			}
 			
 			camera.move();
@@ -192,7 +203,7 @@ public class MainGameLoop {
 			float distance = 2 * (camera.getPosition().y - water.getHeight());
 			camera.getPosition().y -= distance;
 			camera.invertPitch();
-			renderer.renderScene(entities, terrains, lights, camera, new Vector4f(0, 1, 0, -water.getHeight()));
+			renderer.renderScene(entities, terrains, lights, camera, new Vector4f(0, 1, 0, -water.getHeight()+1f));
 			camera.getPosition().y += distance;
 			camera.invertPitch();
 			//********************************************************************************
@@ -212,7 +223,7 @@ public class MainGameLoop {
 			}
 			GL11.glDisable(GL30.GL_CLIP_DISTANCE0);
 			renderer.renderScene(entities, terrains, lights, camera, new Vector4f(0, 0,0,0));
-			waterRenderer.render(waters, camera);
+			waterRenderer.render(waters, camera, sun);
 			guiRenderer.render(guis);
 			
 			DisplayManager.updateDisplay();
